@@ -1,0 +1,57 @@
+# --- General ---
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.swo
+.env
+.env.*
+
+
+# --- Node.js / React ---
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+frontend/.next/         # For Next.js, if used
+frontend/.parcel-cache/
+frontend/.turbo/
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.eslintcache
+frontend/.cache/
+
+# React Native (if applicable)
+*.expo/
+*.expo-shared/
+
+# --- C# / .NET ---
+backend/bin/
+backend/obj/
+backend/**/*.user
+backend/**/*.suo
+backend/**/*.userosscache
+backend/**/*.sln.docstates
+backend/packages/
+backend/project.lock.json
+backend/project.fragment.lock.json
+backend/artifacts/
+backend/TestResults/
+backend/*.dbmdl
+backend/*.bak
+backend/*.db
+backend/*.pdb
+
+# Rider / VS Code / VS ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Others ---
+*.tgz
+*.zip
+*.tar.gz
+*.7z
+*.rar

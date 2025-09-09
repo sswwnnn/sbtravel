@@ -1,0 +1,4351 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "backend",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Auth/getinfo": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string"
+                  },
+                  "Role": {
+                    "type": "string"
+                  },
+                  "Tickets": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ticket"
+                    }
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "Role": {
+                  "style": "form"
+                },
+                "Tickets": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/register": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Auth/ForgetPassword": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "parameters": [
+          {
+            "name": "Email",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Bus": {
+      "get": {
+        "tags": [
+          "Bus"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Bus"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusPlate": {
+                    "type": "string"
+                  },
+                  "BusTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Name": {
+                    "type": "string"
+                  },
+                  "BusType.NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "StationId": {
+                    "type": "string"
+                  },
+                  "Stations": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Station"
+                    }
+                  },
+                  "Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "BusPlate": {
+                  "style": "form"
+                },
+                "BusTypeId": {
+                  "style": "form"
+                },
+                "BusType.Id": {
+                  "style": "form"
+                },
+                "BusType.Name": {
+                  "style": "form"
+                },
+                "BusType.NumberOfSeat": {
+                  "style": "form"
+                },
+                "BusType.Buses": {
+                  "style": "form"
+                },
+                "StationId": {
+                  "style": "form"
+                },
+                "Stations": {
+                  "style": "form"
+                },
+                "Trips": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Bus"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusPlate": {
+                    "type": "string"
+                  },
+                  "BusTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Name": {
+                    "type": "string"
+                  },
+                  "BusType.NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "BusType.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "StationId": {
+                    "type": "string"
+                  },
+                  "Stations": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Station"
+                    }
+                  },
+                  "Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Note": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "BusPlate": {
+                  "style": "form"
+                },
+                "BusTypeId": {
+                  "style": "form"
+                },
+                "BusType.Id": {
+                  "style": "form"
+                },
+                "BusType.Name": {
+                  "style": "form"
+                },
+                "BusType.NumberOfSeat": {
+                  "style": "form"
+                },
+                "BusType.Buses": {
+                  "style": "form"
+                },
+                "StationId": {
+                  "style": "form"
+                },
+                "Stations": {
+                  "style": "form"
+                },
+                "Trips": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Bus/enablebus": {
+      "get": {
+        "tags": [
+          "Bus"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Bus/{Id}": {
+      "get": {
+        "tags": [
+          "Bus"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Bus"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Bus/enable": {
+      "put": {
+        "tags": [
+          "Bus"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BusType": {
+      "get": {
+        "tags": [
+          "BusType"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BusType"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "NumberOfSeat": {
+                  "style": "form"
+                },
+                "Buses": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BusType"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "NumberOfSeat": {
+                  "style": "form"
+                },
+                "Buses": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BusType/{Id}": {
+      "get": {
+        "tags": [
+          "BusType"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BusType"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/BusType/Options": {
+      "get": {
+        "tags": [
+          "BusType"
+        ],
+        "parameters": [
+          {
+            "name": "search",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment": {
+      "post": {
+        "tags": [
+          "Comment"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "NewsId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "News.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "News.Title": {
+                    "type": "string"
+                  },
+                  "News.Content": {
+                    "type": "string"
+                  },
+                  "News.DayCreateNew": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "News.Image": {
+                    "type": "string"
+                  },
+                  "News.Comments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  },
+                  "News.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "User.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "User.Email": {
+                    "type": "string"
+                  },
+                  "User.Password": {
+                    "type": "string"
+                  },
+                  "User.FullName": {
+                    "type": "string"
+                  },
+                  "User.Avatar": {
+                    "type": "string"
+                  },
+                  "User.Role": {
+                    "type": "string"
+                  },
+                  "User.Tickets": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ticket"
+                    }
+                  },
+                  "User.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "NewsId": {
+                  "style": "form"
+                },
+                "CreatedAt": {
+                  "style": "form"
+                },
+                "News.Id": {
+                  "style": "form"
+                },
+                "News.Title": {
+                  "style": "form"
+                },
+                "News.Content": {
+                  "style": "form"
+                },
+                "News.DayCreateNew": {
+                  "style": "form"
+                },
+                "News.Image": {
+                  "style": "form"
+                },
+                "News.Comments": {
+                  "style": "form"
+                },
+                "News.UploadImage": {
+                  "style": "form"
+                },
+                "User.Id": {
+                  "style": "form"
+                },
+                "User.Email": {
+                  "style": "form"
+                },
+                "User.Password": {
+                  "style": "form"
+                },
+                "User.FullName": {
+                  "style": "form"
+                },
+                "User.Avatar": {
+                  "style": "form"
+                },
+                "User.Role": {
+                  "style": "form"
+                },
+                "User.Tickets": {
+                  "style": "form"
+                },
+                "User.UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Comment/{Id}": {
+      "delete": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Comment"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "NewsId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CreatedAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "News.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "News.Title": {
+                    "type": "string"
+                  },
+                  "News.Content": {
+                    "type": "string"
+                  },
+                  "News.DayCreateNew": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "News.Image": {
+                    "type": "string"
+                  },
+                  "News.Comments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  },
+                  "News.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "User.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "User.Email": {
+                    "type": "string"
+                  },
+                  "User.Password": {
+                    "type": "string"
+                  },
+                  "User.FullName": {
+                    "type": "string"
+                  },
+                  "User.Avatar": {
+                    "type": "string"
+                  },
+                  "User.Role": {
+                    "type": "string"
+                  },
+                  "User.Tickets": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ticket"
+                    }
+                  },
+                  "User.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "NewsId": {
+                  "style": "form"
+                },
+                "CreatedAt": {
+                  "style": "form"
+                },
+                "News.Id": {
+                  "style": "form"
+                },
+                "News.Title": {
+                  "style": "form"
+                },
+                "News.Content": {
+                  "style": "form"
+                },
+                "News.DayCreateNew": {
+                  "style": "form"
+                },
+                "News.Image": {
+                  "style": "form"
+                },
+                "News.Comments": {
+                  "style": "form"
+                },
+                "News.UploadImage": {
+                  "style": "form"
+                },
+                "User.Id": {
+                  "style": "form"
+                },
+                "User.Email": {
+                  "style": "form"
+                },
+                "User.Password": {
+                  "style": "form"
+                },
+                "User.FullName": {
+                  "style": "form"
+                },
+                "User.Avatar": {
+                  "style": "form"
+                },
+                "User.Role": {
+                  "style": "form"
+                },
+                "User.Tickets": {
+                  "style": "form"
+                },
+                "User.UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "DriverLicense",
+                  "FullName",
+                  "NationalId",
+                  "Phone"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string"
+                  },
+                  "NationalId": {
+                    "type": "string"
+                  },
+                  "DriverLicense": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "YearOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PlaceOfBirth": {
+                    "type": "string"
+                  },
+                  "Note": {
+                    "type": "string"
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "isApprove": {
+                    "type": "boolean"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "NationalId": {
+                  "style": "form"
+                },
+                "DriverLicense": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "YearOfBirth": {
+                  "style": "form"
+                },
+                "PlaceOfBirth": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "isApprove": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                },
+                "Trips": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "DriverLicense",
+                  "FullName",
+                  "NationalId",
+                  "Phone"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string"
+                  },
+                  "NationalId": {
+                    "type": "string"
+                  },
+                  "DriverLicense": {
+                    "type": "string"
+                  },
+                  "Phone": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "YearOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "PlaceOfBirth": {
+                    "type": "string"
+                  },
+                  "Note": {
+                    "type": "string"
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "isApprove": {
+                    "type": "boolean"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "NationalId": {
+                  "style": "form"
+                },
+                "DriverLicense": {
+                  "style": "form"
+                },
+                "Phone": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "YearOfBirth": {
+                  "style": "form"
+                },
+                "PlaceOfBirth": {
+                  "style": "form"
+                },
+                "Note": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "isApprove": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                },
+                "Trips": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver/registerdriver": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver/{Id}": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver/approve": {
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver/login": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Driver/ForgetPassword": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "Email",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FAQ": {
+      "get": {
+        "tags": [
+          "FAQ"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "FAQ"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Question": {
+                    "type": "string"
+                  },
+                  "Answer": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Question": {
+                  "style": "form"
+                },
+                "Answer": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "FAQ"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Question": {
+                    "type": "string"
+                  },
+                  "Answer": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Question": {
+                  "style": "form"
+                },
+                "Answer": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/FAQ/{Id}": {
+      "get": {
+        "tags": [
+          "FAQ"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "FAQ"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/News": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "News"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "DayCreateNew": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "Comments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "DayCreateNew": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "Comments": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/News/{Id}": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "Content": {
+                    "type": "string"
+                  },
+                  "DayCreateNew": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "Comments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "Content": {
+                  "style": "form"
+                },
+                "DayCreateNew": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "Comments": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/News/Pagination": {
+      "get": {
+        "tags": [
+          "News"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Offer": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Offer"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "OfferCode": {
+                    "type": "string"
+                  },
+                  "Discount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "FromStation": {
+                    "type": "string"
+                  },
+                  "ToStation": {
+                    "type": "string"
+                  },
+                  "BeginDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "OfferCode": {
+                  "style": "form"
+                },
+                "Discount": {
+                  "style": "form"
+                },
+                "FromStation": {
+                  "style": "form"
+                },
+                "ToStation": {
+                  "style": "form"
+                },
+                "BeginDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Offer/{Id}": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Title": {
+                    "type": "string"
+                  },
+                  "OfferCode": {
+                    "type": "string"
+                  },
+                  "Discount": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "FromStation": {
+                    "type": "string"
+                  },
+                  "ToStation": {
+                    "type": "string"
+                  },
+                  "BeginDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "EndDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Enabled": {
+                    "type": "boolean"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Title": {
+                  "style": "form"
+                },
+                "OfferCode": {
+                  "style": "form"
+                },
+                "Discount": {
+                  "style": "form"
+                },
+                "FromStation": {
+                  "style": "form"
+                },
+                "ToStation": {
+                  "style": "form"
+                },
+                "BeginDate": {
+                  "style": "form"
+                },
+                "EndDate": {
+                  "style": "form"
+                },
+                "Enabled": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Offer/enableoffer": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Offer/code/{Code}": {
+      "get": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "Code",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Offer/enable": {
+      "put": {
+        "tags": [
+          "Offer"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/PromoteTrip": {
+      "get": {
+        "tags": [
+          "PromoteTrip"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PromoteTrip"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStation": {
+                    "type": "string"
+                  },
+                  "ToStation": {
+                    "type": "string"
+                  },
+                  "MinPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "FromStation": {
+                  "style": "form"
+                },
+                "ToStation": {
+                  "style": "form"
+                },
+                "MinPrice": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "PromoteTrip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStation": {
+                    "type": "string"
+                  },
+                  "ToStation": {
+                    "type": "string"
+                  },
+                  "MinPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "FromStation": {
+                  "style": "form"
+                },
+                "ToStation": {
+                  "style": "form"
+                },
+                "MinPrice": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/PromoteTrip/{Id}": {
+      "get": {
+        "tags": [
+          "PromoteTrip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PromoteTrip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Seat": {
+      "post": {
+        "tags": [
+          "Seat"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Station": {
+      "get": {
+        "tags": [
+          "Station"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Station"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Buses": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Station"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Address": {
+                    "type": "string"
+                  },
+                  "Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Address": {
+                  "style": "form"
+                },
+                "Buses": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Station/{Id}": {
+      "get": {
+        "tags": [
+          "Station"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Station"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Ticket/{Id}": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Ticket/search/{Code}": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "Code",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Ticket": {
+      "post": {
+        "tags": [
+          "Ticket"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ticket"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Day",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Ticket/profit/{year}": {
+      "get": {
+        "tags": [
+          "Ticket"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Trip": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Trip"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Driver.DriverLicense",
+                  "Driver.FullName",
+                  "Driver.NationalId",
+                  "Driver.Phone"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "StartTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "FinishTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "TicketPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "BusId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DriverId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ToStationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Seats": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Seat"
+                    }
+                  },
+                  "Bus.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusPlate": {
+                    "type": "string"
+                  },
+                  "Bus.BusTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Name": {
+                    "type": "string"
+                  },
+                  "Bus.BusType.NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "Bus.StationId": {
+                    "type": "string"
+                  },
+                  "Bus.Stations": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Station"
+                    }
+                  },
+                  "Bus.Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "Bus.Enabled": {
+                    "type": "boolean"
+                  },
+                  "Bus.Note": {
+                    "type": "string"
+                  },
+                  "Driver.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Driver.FullName": {
+                    "type": "string"
+                  },
+                  "Driver.Avatar": {
+                    "type": "string"
+                  },
+                  "Driver.NationalId": {
+                    "type": "string"
+                  },
+                  "Driver.DriverLicense": {
+                    "type": "string"
+                  },
+                  "Driver.Phone": {
+                    "type": "string"
+                  },
+                  "Driver.Email": {
+                    "type": "string"
+                  },
+                  "Driver.Password": {
+                    "type": "string"
+                  },
+                  "Driver.YearOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Driver.PlaceOfBirth": {
+                    "type": "string"
+                  },
+                  "Driver.Note": {
+                    "type": "string"
+                  },
+                  "Driver.Enabled": {
+                    "type": "boolean"
+                  },
+                  "Driver.isApprove": {
+                    "type": "boolean"
+                  },
+                  "Driver.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Driver.Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "FromStation.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStation.Name": {
+                    "type": "string"
+                  },
+                  "FromStation.Address": {
+                    "type": "string"
+                  },
+                  "FromStation.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "ToStation.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ToStation.Name": {
+                    "type": "string"
+                  },
+                  "ToStation.Address": {
+                    "type": "string"
+                  },
+                  "ToStation.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "StartTime": {
+                  "style": "form"
+                },
+                "FinishTime": {
+                  "style": "form"
+                },
+                "TicketPrice": {
+                  "style": "form"
+                },
+                "BusId": {
+                  "style": "form"
+                },
+                "DriverId": {
+                  "style": "form"
+                },
+                "FromStationId": {
+                  "style": "form"
+                },
+                "ToStationId": {
+                  "style": "form"
+                },
+                "Seats": {
+                  "style": "form"
+                },
+                "Bus.Id": {
+                  "style": "form"
+                },
+                "Bus.BusPlate": {
+                  "style": "form"
+                },
+                "Bus.BusTypeId": {
+                  "style": "form"
+                },
+                "Bus.BusType.Id": {
+                  "style": "form"
+                },
+                "Bus.BusType.Name": {
+                  "style": "form"
+                },
+                "Bus.BusType.NumberOfSeat": {
+                  "style": "form"
+                },
+                "Bus.BusType.Buses": {
+                  "style": "form"
+                },
+                "Bus.StationId": {
+                  "style": "form"
+                },
+                "Bus.Stations": {
+                  "style": "form"
+                },
+                "Bus.Trips": {
+                  "style": "form"
+                },
+                "Bus.Enabled": {
+                  "style": "form"
+                },
+                "Bus.Note": {
+                  "style": "form"
+                },
+                "Driver.Id": {
+                  "style": "form"
+                },
+                "Driver.FullName": {
+                  "style": "form"
+                },
+                "Driver.Avatar": {
+                  "style": "form"
+                },
+                "Driver.NationalId": {
+                  "style": "form"
+                },
+                "Driver.DriverLicense": {
+                  "style": "form"
+                },
+                "Driver.Phone": {
+                  "style": "form"
+                },
+                "Driver.Email": {
+                  "style": "form"
+                },
+                "Driver.Password": {
+                  "style": "form"
+                },
+                "Driver.YearOfBirth": {
+                  "style": "form"
+                },
+                "Driver.PlaceOfBirth": {
+                  "style": "form"
+                },
+                "Driver.Note": {
+                  "style": "form"
+                },
+                "Driver.Enabled": {
+                  "style": "form"
+                },
+                "Driver.isApprove": {
+                  "style": "form"
+                },
+                "Driver.UploadImage": {
+                  "style": "form"
+                },
+                "Driver.Trips": {
+                  "style": "form"
+                },
+                "FromStation.Id": {
+                  "style": "form"
+                },
+                "FromStation.Name": {
+                  "style": "form"
+                },
+                "FromStation.Address": {
+                  "style": "form"
+                },
+                "FromStation.Buses": {
+                  "style": "form"
+                },
+                "ToStation.Id": {
+                  "style": "form"
+                },
+                "ToStation.Name": {
+                  "style": "form"
+                },
+                "ToStation.Address": {
+                  "style": "form"
+                },
+                "ToStation.Buses": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Trip/{Id}": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Driver.DriverLicense",
+                  "Driver.FullName",
+                  "Driver.NationalId",
+                  "Driver.Phone"
+                ],
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "StartTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "FinishTime": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "TicketPrice": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "BusId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "DriverId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ToStationId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Seats": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Seat"
+                    }
+                  },
+                  "Bus.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusPlate": {
+                    "type": "string"
+                  },
+                  "Bus.BusTypeId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Name": {
+                    "type": "string"
+                  },
+                  "Bus.BusType.NumberOfSeat": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Bus.BusType.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "Bus.StationId": {
+                    "type": "string"
+                  },
+                  "Bus.Stations": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Station"
+                    }
+                  },
+                  "Bus.Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "Bus.Enabled": {
+                    "type": "boolean"
+                  },
+                  "Bus.Note": {
+                    "type": "string"
+                  },
+                  "Driver.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Driver.FullName": {
+                    "type": "string"
+                  },
+                  "Driver.Avatar": {
+                    "type": "string"
+                  },
+                  "Driver.NationalId": {
+                    "type": "string"
+                  },
+                  "Driver.DriverLicense": {
+                    "type": "string"
+                  },
+                  "Driver.Phone": {
+                    "type": "string"
+                  },
+                  "Driver.Email": {
+                    "type": "string"
+                  },
+                  "Driver.Password": {
+                    "type": "string"
+                  },
+                  "Driver.YearOfBirth": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Driver.PlaceOfBirth": {
+                    "type": "string"
+                  },
+                  "Driver.Note": {
+                    "type": "string"
+                  },
+                  "Driver.Enabled": {
+                    "type": "boolean"
+                  },
+                  "Driver.isApprove": {
+                    "type": "boolean"
+                  },
+                  "Driver.UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Driver.Trips": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Trip"
+                    }
+                  },
+                  "FromStation.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FromStation.Name": {
+                    "type": "string"
+                  },
+                  "FromStation.Address": {
+                    "type": "string"
+                  },
+                  "FromStation.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "ToStation.Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "ToStation.Name": {
+                    "type": "string"
+                  },
+                  "ToStation.Address": {
+                    "type": "string"
+                  },
+                  "ToStation.Buses": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Bus"
+                    }
+                  },
+                  "Image": {
+                    "type": "string"
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "StartTime": {
+                  "style": "form"
+                },
+                "FinishTime": {
+                  "style": "form"
+                },
+                "TicketPrice": {
+                  "style": "form"
+                },
+                "BusId": {
+                  "style": "form"
+                },
+                "DriverId": {
+                  "style": "form"
+                },
+                "FromStationId": {
+                  "style": "form"
+                },
+                "ToStationId": {
+                  "style": "form"
+                },
+                "Seats": {
+                  "style": "form"
+                },
+                "Bus.Id": {
+                  "style": "form"
+                },
+                "Bus.BusPlate": {
+                  "style": "form"
+                },
+                "Bus.BusTypeId": {
+                  "style": "form"
+                },
+                "Bus.BusType.Id": {
+                  "style": "form"
+                },
+                "Bus.BusType.Name": {
+                  "style": "form"
+                },
+                "Bus.BusType.NumberOfSeat": {
+                  "style": "form"
+                },
+                "Bus.BusType.Buses": {
+                  "style": "form"
+                },
+                "Bus.StationId": {
+                  "style": "form"
+                },
+                "Bus.Stations": {
+                  "style": "form"
+                },
+                "Bus.Trips": {
+                  "style": "form"
+                },
+                "Bus.Enabled": {
+                  "style": "form"
+                },
+                "Bus.Note": {
+                  "style": "form"
+                },
+                "Driver.Id": {
+                  "style": "form"
+                },
+                "Driver.FullName": {
+                  "style": "form"
+                },
+                "Driver.Avatar": {
+                  "style": "form"
+                },
+                "Driver.NationalId": {
+                  "style": "form"
+                },
+                "Driver.DriverLicense": {
+                  "style": "form"
+                },
+                "Driver.Phone": {
+                  "style": "form"
+                },
+                "Driver.Email": {
+                  "style": "form"
+                },
+                "Driver.Password": {
+                  "style": "form"
+                },
+                "Driver.YearOfBirth": {
+                  "style": "form"
+                },
+                "Driver.PlaceOfBirth": {
+                  "style": "form"
+                },
+                "Driver.Note": {
+                  "style": "form"
+                },
+                "Driver.Enabled": {
+                  "style": "form"
+                },
+                "Driver.isApprove": {
+                  "style": "form"
+                },
+                "Driver.UploadImage": {
+                  "style": "form"
+                },
+                "Driver.Trips": {
+                  "style": "form"
+                },
+                "FromStation.Id": {
+                  "style": "form"
+                },
+                "FromStation.Name": {
+                  "style": "form"
+                },
+                "FromStation.Address": {
+                  "style": "form"
+                },
+                "FromStation.Buses": {
+                  "style": "form"
+                },
+                "ToStation.Id": {
+                  "style": "form"
+                },
+                "ToStation.Name": {
+                  "style": "form"
+                },
+                "ToStation.Address": {
+                  "style": "form"
+                },
+                "ToStation.Buses": {
+                  "style": "form"
+                },
+                "Image": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Trip/DriverId/{Id}": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Trip/Options": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "searchBusType",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromPrice",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toPrice",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dayStart",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Trip/profit/{year}": {
+      "get": {
+        "tags": [
+          "Trip"
+        ],
+        "parameters": [
+          {
+            "name": "year",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string"
+                  },
+                  "Role": {
+                    "type": "string"
+                  },
+                  "Tickets": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ticket"
+                    }
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "Role": {
+                  "style": "form"
+                },
+                "Tickets": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/all": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/Mod": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/{Id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "Password": {
+                    "type": "string"
+                  },
+                  "FullName": {
+                    "type": "string"
+                  },
+                  "Avatar": {
+                    "type": "string"
+                  },
+                  "Role": {
+                    "type": "string"
+                  },
+                  "Tickets": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Ticket"
+                    }
+                  },
+                  "UploadImage": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "Password": {
+                  "style": "form"
+                },
+                "FullName": {
+                  "style": "form"
+                },
+                "Avatar": {
+                  "style": "form"
+                },
+                "Role": {
+                  "style": "form"
+                },
+                "Tickets": {
+                  "style": "form"
+                },
+                "UploadImage": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Bus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "busPlate": {
+            "type": "string",
+            "nullable": true
+          },
+          "busTypeId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "busType": {
+            "$ref": "#/components/schemas/BusType"
+          },
+          "stationId": {
+            "type": "string",
+            "nullable": true
+          },
+          "stations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Station"
+            },
+            "nullable": true
+          },
+          "trips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trip"
+            },
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BusType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "numberOfSeat": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "buses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bus"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "newsId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "news": {
+            "$ref": "#/components/schemas/News"
+          },
+          "user": {
+            "$ref": "#/components/schemas/User"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Driver": {
+        "required": [
+          "driverLicense",
+          "fullName",
+          "nationalId",
+          "phone"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "nationalId": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "driverLicense": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "phone": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "yearOfBirth": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "placeOfBirth": {
+            "type": "string",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "enabled": {
+            "type": "boolean"
+          },
+          "isApprove": {
+            "type": "boolean"
+          },
+          "uploadImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "trips": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Trip"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "News": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "dayCreateNew": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "nullable": true
+          },
+          "uploadImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Seat": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "tripId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Station": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "buses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Bus"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Ticket": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "tripId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "trips": {
+            "$ref": "#/components/schemas/Trip"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "users": {
+            "$ref": "#/components/schemas/User"
+          },
+          "seatsList": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalPrice": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "isCancel": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "note": {
+            "type": "string",
+            "nullable": true
+          },
+          "bookDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Trip": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finishTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ticketPrice": {
+            "type": "number",
+            "format": "double"
+          },
+          "busId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "driverId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromStationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "toStationId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "seats": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Seat"
+            },
+            "nullable": true
+          },
+          "bus": {
+            "$ref": "#/components/schemas/Bus"
+          },
+          "driver": {
+            "$ref": "#/components/schemas/Driver"
+          },
+          "fromStation": {
+            "$ref": "#/components/schemas/Station"
+          },
+          "toStation": {
+            "$ref": "#/components/schemas/Station"
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "avatar": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "tickets": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ticket"
+            },
+            "nullable": true
+          },
+          "uploadImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

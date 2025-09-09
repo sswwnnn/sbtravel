@@ -1,0 +1,10 @@
+.home-background {
+    background-image: url('../assets/xx.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
